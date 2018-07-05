@@ -3,3 +3,5 @@
 ################################################################################
 
 /Code/CicdLab/.vs
+/Code/CicdLab/CicdLab.WebApp/obj
+/Code/CicdLab/CicdLab.WebApp/publish

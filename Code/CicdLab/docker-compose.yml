@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  cicdlab.webapp:
+    image: ${DOCKER_REGISTRY}cicdlabwebapp
+    build:
+      context: .
+      dockerfile: CicdLab.WebApp/Dockerfile

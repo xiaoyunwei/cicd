@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Run new container') {
       steps {
-        bat 'cd Code'
-        bat 'docker build . -f CicdLab.WebApp/Dockerfile -t cicdlabwebapp'
+        bat 'docker build Code -f Code\\CicdLab.WebApp/Dockerfile -t cicdlabwebapp'
         bat 'docker rm cicdlabwebapp_container --force'
         bat 'docker run -p 8081:80 -it --name cicdlabwebapp_container cicdlabwebapp'
       }

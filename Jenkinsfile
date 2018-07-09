@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Run container') {
       steps {
-        bat 'docker run -p 8081:80 -it --name cicdlabwebapp_container cicdlabwebapp'
+        bat 'docker run -p 8081:80 --name cicdlabwebapp_container cicdlabwebapp'
       }
     }
   }

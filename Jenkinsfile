@@ -11,7 +11,7 @@ pipeline {
           bat 'docker rm cicdlabwebapp_container --force'
         }
 
-        bat 'docker run -p 8081:80 --name cicdlabwebapp_container cicdlabwebapp'
+        bat 'docker run -p 8081:80 -d --name cicdlabwebapp_container cicdlabwebapp'
       }
     }
   }

@@ -1,13 +1,17 @@
 pipeline {
   agent any
-
   stages {
-    stage('Run new container') {
+    stage('Build image') {
       steps {
-        bat 'cd Code'
-        bat 'docker build . -f CicdLab.WebApp/Dockerfile -t cicdlabwebapp'
-        bat 'docker rm cicdlabwebapp_container --force'
-        bat 'docker run -p 8081:80 -it --name cicdlabwebapp_container cicdlabwebapp'
+        dir(path: 'Code\\CicdLab') {
+          bat 'docker build . -f CicdLab.WebApp\\Dockerfile -t cicdlabwebapp'
+        }
+
+        catchError() {
+          bat 'docker rm cicdlabwebapp_container --force'
+        }
+
+        bat 'docker run -p 8081:80 -d --name cicdlabwebapp_container cicdlabwebapp'
       }
     }
   }
